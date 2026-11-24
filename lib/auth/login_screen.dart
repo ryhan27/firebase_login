@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -91,20 +90,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ? const CircularProgressIndicator(color: Colors.white)
                     : const Text('Login'),
               ),
-            ),
-            const SizedBox(height: 12),
-            TextButton(
-              onPressed: _isLoading
-                  ? null
-                  : () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const RegisterScreen(),
-                        ),
-                      );
-                    },
-              child: const Text('Belum punya akun? Daftar'),
             ),
           ],
         ),
