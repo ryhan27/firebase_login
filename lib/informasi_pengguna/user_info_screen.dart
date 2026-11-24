@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:login_firebase/fcm_token_card.dart';
+// Jangan lupa import file widget FcmTokenCard kamu di sini, contoh:
+// import 'fcm_token_card.dart';
 
 class UserInfoScreen extends StatelessWidget {
   final User user;
@@ -23,11 +26,10 @@ class UserInfoScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Icon(Icons.account_circle, size: 100, color: Colors.blue),
@@ -62,6 +64,8 @@ class UserInfoScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 16),
+              const FcmTokenCard(),
             ],
           ),
         ),
