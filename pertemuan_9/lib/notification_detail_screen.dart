@@ -9,13 +9,18 @@ class NotificationDetailScreen extends StatelessWidget {
     final extraData = Map<String, dynamic>.from(data)
       ..remove('title')
       ..remove('body');
+    final isPromo = data['kategori']?.toString().toLowerCase() == 'promo';
 
     return Scaffold(
       appBar: AppBar(title: const Text('Detail Notifikasi')),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const Icon(Icons.notifications_active, size: 80, color: Colors.orange),
+          Icon(
+            isPromo ? Icons.shopping_cart : Icons.notifications_active,
+            size: 80,
+            color: isPromo ? Colors.green : Colors.orange,
+          ),
           const SizedBox(height: 16),
           Text(
             data['title']?.toString() ?? '-',
